@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>PMS-Docker - Plexpass</Name>
+  <Repository>plexinc/pms-docker:plexpass</Repository>
+  <Registry>https://hub.docker.com/r/plexinc/pms-docker/</Registry>
+  <Network>host</Network>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Overview>This is a template for the official Plex Media Server Docker.</Overview>
+  <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
+  <WebUI>http://[IP]:[PORT:32400]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ketchuphed/docker-icons/master/plex-pms-icon.png</Icon>
+  <ExtraParams/>
+  <DateInstalled>1483832778</DateInstalled>
+  <Description>This is a template for the official Plex Media Server Docker. This template pulls from the Plexpass build. You must have PlexPass on your account. Otherwise, this will download from the Latest tag</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>32400</HostPort>
+        <ContainerPort>32400</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>3005</HostPort>
+        <ContainerPort>3005</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8324</HostPort>
+        <ContainerPort>8324</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32469</HostPort>
+        <ContainerPort>32469</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>1900</HostPort>
+        <ContainerPort>1900</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32410</HostPort>
+        <ContainerPort>32410</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32412</HostPort>
+        <ContainerPort>32412</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32413</HostPort>
+        <ContainerPort>32413</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32414</HostPort>
+        <ContainerPort>32414</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/Plex Library/Movies</HostDir>
+      <ContainerDir>/Movies</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Plex Library/Television</HostDir>
+      <ContainerDir>/TV Shows</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Plex Library/Music</HostDir>
+      <ContainerDir>/Music</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/Media</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/pms-docker/tmp</HostDir>
+      <ContainerDir>/transcode</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/pms-docker</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>America/Detroit</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>claim-</Value>
+      <Name>PLEX_CLAIM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PLEX_UID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PLEX_GID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Plex Media Server Access Port" Target="32400" Default="32400" Mode="tcp" Description="Container Port: 32400" Type="Port" Display="always" Required="true" Mask="false">32400</Config>
+  <Config Name="Plex Home Theater (Plex Companion) Port" Target="3005" Default="3005" Mode="tcp" Description="Container Port: 3005" Type="Port" Display="always" Required="false" Mask="false">3005</Config>
+  <Config Name="Plex for Roku (Plex Companion) Port" Target="8324" Default="8324" Mode="tcp" Description="Container Port: 8324" Type="Port" Display="always" Required="false" Mask="false">8324</Config>
+  <Config Name="Plex DLNA Server Port" Target="32469" Default="32469" Mode="tcp" Description="Container Port: 32469" Type="Port" Display="always" Required="false" Mask="false">32469</Config>
+  <Config Name="Plex DNLA Server Port" Target="1900" Default="1900" Mode="udp" Description="Container Port: 1900" Type="Port" Display="always" Required="false" Mask="false">1900</Config>
+  <Config Name="GDM Network Discovery Port" Target="32410" Default="32410" Mode="udp" Description="Container Port: 32410" Type="Port" Display="always" Required="false" Mask="false">32410</Config>
+  <Config Name="GDM Network Discovery Port" Target="32412" Default="32412" Mode="udp" Description="Container Port: 32412" Type="Port" Display="always" Required="false" Mask="false">32412</Config>
+  <Config Name="GDM Network Discovery Port" Target="32413" Default="32413" Mode="udp" Description="Container Port: 32413" Type="Port" Display="always" Required="false" Mask="false">32413</Config>
+  <Config Name="GDM Network Discovery Port" Target="32414" Default="32414" Mode="udp" Description="Container Port: 32414" Type="Port" Display="always" Required="false" Mask="false">32414</Config>
+  <Config Name="Time Zone" Target="TZ" Default="America/New York" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false">America/New York</Config>
+  <Config Name="Plex Claim" Target="PLEX_CLAIM" Default="claim-" Mode="" Description="Container Variable: PLEX_CLAIM" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Movies Directory" Target="/Movies" Default="" Mode="rw" Description="Container Path: /Movies" Type="Path" Display="always" Required="false" Mask="false">/path/to/Movies</Config>
+  <Config Name="Television Directory" Target="/TV Shows" Default="" Mode="rw" Description="Container Path: /TV Shows" Type="Path" Display="always" Required="false" Mask="false">/path/to/Television</Config>
+  <Config Name="Music Directory" Target="/Music" Default="" Mode="rw" Description="Container Path: /Music" Type="Path" Display="always" Required="false" Mask="false">/path/to/Music</Config>
+  <Config Name="Media Directory" Target="/Media" Default="/path/to/plex/library" Mode="rw" Description="Use this in place of separate /Movies, /TV Shows, &amp;amp; /Music directories" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Transcode Directory" Target="/transcode" Default="/mnt/user/appdata/pms-docker/tmp" Mode="rw" Description="Container Path: /transcode" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/pms-docker/tmp</Config>
+  <Config Name="Plex UID" Target="PLEX_UID" Default="99" Mode="" Description="Container Variable: PLEX_UID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="Plex GID" Target="PLEX_GID" Default="100" Mode="" Description="Container Variable: PLEX_GID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/pms-docker</Config>
+</Container>
